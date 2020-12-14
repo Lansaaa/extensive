@@ -1,5 +1,6 @@
-package com.lansa.extensive.extensions
+package com.lansa.extensive.extensive.extensions
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
@@ -7,16 +8,17 @@ import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 
-fun Fragment.goBack() {
-    view?.goBack()
-}
 
-fun Fragment.goBackOnDeviceBackPressed(value: Boolean = true) {
+fun Fragment.enableBackOnDeviceBackPressed(value: Boolean = true) {
     if (value) {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             goBack()
         }
     }
+}
+
+fun Fragment.goBack() {
+    view?.goBack()
 }
 
 fun Fragment.goTo(
@@ -40,4 +42,19 @@ fun Fragment.showKeyboard() {
     view?.let { activity?.showKeyboard() }
 }
 
+fun Fragment.color(value: Int): Int {
+    return requireContext().color(value)
+}
+
+fun Fragment.drawable(value: Int): Drawable? {
+    return requireContext().drawable(value)
+}
+
+fun Fragment.plural(value: Int, amount: Int): String {
+    return requireContext().plural(value, amount)
+}
+
+fun Fragment.string(value: Int): String {
+    return requireContext().string(value)
+}
 

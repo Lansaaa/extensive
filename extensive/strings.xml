@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <plurals name="second_s_ago">
+        <item quantity="one">1 secondo fa</item>
+        <item quantity="other">%1$d secondi fa</item>
+    </plurals>
+
+    <plurals name="minute_s_ago">
+        <item quantity="one">1 minuto fa</item>
+        <item quantity="other">%1$d minuti fa</item>
+    </plurals>
+
+    <plurals name="hour_s_ago">
+        <item quantity="one">1 ora fa</item>
+        <item quantity="other">%1$d ore fa</item>
+    </plurals>
+
+    <plurals name="day_s_ago">
+        <item quantity="one">1 giorno fa</item>
+        <item quantity="other">%1$d giorni fa</item>
+    </plurals>
+
+    <plurals name="month_s_ago">
+        <item quantity="one">1 mese fa</item>
+        <item quantity="other">%1$d mesi fa</item>
+    </plurals>
+
+    <plurals name="year_s_ago">
+        <item quantity="one">1 anno fa</item>
+        <item quantity="other">%1$d anni fa</item>
+    </plurals>
+
+</resources>

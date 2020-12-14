@@ -1,4 +1,4 @@
-package com.lansa.extensive.classes
+package com.lansa.extensive.extensive.classes
 
 enum class ViewState {
     GONE,

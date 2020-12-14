@@ -1,4 +1,4 @@
-package com.lansa.extensive.extensions
+package com.lansa.extensive.extensive.extensions
 
 import android.app.Activity
 import android.app.ActivityManager
@@ -6,6 +6,7 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 
 
@@ -20,6 +21,14 @@ fun Context.drawable(value: Int): Drawable? {
 fun Context.hideKeyboard(view: View) {
     val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+}
+
+fun Context.plural(value: Int, amount: Int): String {
+    return resources.getQuantityString(value, amount, amount)
+}
+
+fun Context.string(value: Int): String {
+    return resources.getString(value)
 }
 
 fun Context.isAppInBackground(): Boolean {
@@ -40,4 +49,8 @@ fun Context.isAppInBackground(): Boolean {
 fun Context.showKeyboard() {
     val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_IMPLICIT_ONLY)
+}
+
+fun Context.toast(value: String, length: Int = Toast.LENGTH_LONG) {
+    Toast.makeText(this, value, Toast.LENGTH_LONG).show()
 }

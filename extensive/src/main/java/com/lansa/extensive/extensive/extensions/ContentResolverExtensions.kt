@@ -1,4 +1,4 @@
-package com.lansa.extensive.extensions
+package com.lansa.extensive.extensive.extensions
 
 import android.content.ContentResolver
 import android.net.Uri

@@ -1,6 +1,6 @@
-package com.lansa.extensive
+package com.lansa.extensive.extensive
 
-import com.lansa.extensive.extensions.toMillis
+import com.lansa.extensive.extensive.extensions.toMillis
 import java.time.LocalDateTime
 import java.util.*
 
