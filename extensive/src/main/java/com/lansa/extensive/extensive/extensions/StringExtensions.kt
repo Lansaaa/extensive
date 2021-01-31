@@ -48,5 +48,5 @@ fun String?.toBase64String(): String {
 }
 
 fun String?.toTitleCase(): String {
-    return this?.split(" ")?.joinToString(" ") { it.capitalize(locale()) } ?: ""
+    return this?.toLowerCase()?.split(" ")?.joinToString(" ") { it.capitalize(locale()) } ?: ""
 }

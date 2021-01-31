@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
+import androidx.navigation.fragment.findNavController
 
 
 fun Fragment.enableBackOnDeviceBackPressed(value: Boolean = true) {
@@ -18,7 +19,11 @@ fun Fragment.enableBackOnDeviceBackPressed(value: Boolean = true) {
 }
 
 fun Fragment.goBack() {
-    view?.goBack()
+    findNavController().popBackStack()
+}
+
+fun Fragment.goBackTo(value: Int, inclusive: Boolean) {
+    findNavController().popBackStack(value, inclusive)
 }
 
 fun Fragment.goTo(
@@ -33,6 +38,7 @@ fun Fragment.goTo(
 fun Fragment.goTo(navDirections: NavDirections) {
     view?.goTo(navDirections)
 }
+
 
 fun Fragment.hideKeyboard() {
     view?.let { activity?.hideKeyboard(it) }

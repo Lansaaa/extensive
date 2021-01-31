@@ -1,14 +1,20 @@
 package com.lansa.extensive.extensive.extensions
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.animation.AlphaAnimation
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.lansa.extensive.extensive.Utils.DEFAULT_FADE_IN_DURATION
 import com.lansa.extensive.extensive.classes.ViewState
 
@@ -108,4 +114,19 @@ fun View.visible() {
     if (isNotInvisible) {
         visibility = View.VISIBLE
     }
+}
+
+fun View.color(@ColorRes value: Int): Int {
+    return context.color(value)
+}
+
+fun View.drawable(@DrawableRes value: Int): Drawable? {
+    return context.drawable(value)
+}
+
+fun View.string(@StringRes value: Int): String {
+    return context.string(value)
+}
+fun View.plural(@StringRes value: Int, amount: Int): String {
+    return context.plural(value, amount)
 }
