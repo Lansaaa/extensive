@@ -34,5 +34,7 @@ fun Any?.warn(tag: Any? = null, prefix: String = "") {
     return Timber.tag(if (tag == null) "" else "$tag").w("$prefix\t${toString()}")
 }
 
-
+fun Any?.isNull(): Boolean {
+    return this == null
+}
 

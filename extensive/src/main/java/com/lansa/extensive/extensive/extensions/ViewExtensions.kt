@@ -6,9 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.view.animation.AlphaAnimation
-import androidx.annotation.ColorRes
-import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
+import androidx.annotation.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.NavOptions
@@ -37,10 +35,7 @@ val View.isNotInvisible: Boolean
 val View.isNotVisible: Boolean
     get() = !isVisible
 
-fun View.fadeIn(
-    haltTime: Long = DEFAULT_FADE_IN_DURATION,
-    fadeDuration: Long = DEFAULT_FADE_IN_DURATION
-) {
+fun View.fadeIn(haltTime: Long = DEFAULT_FADE_IN_DURATION, fadeDuration: Long = DEFAULT_FADE_IN_DURATION) {
     this.invisible()
     Handler(Looper.getMainLooper()).postDelayed({
         this.startAnimation(AlphaAnimation(0F, 1F).apply {
@@ -51,10 +46,7 @@ fun View.fadeIn(
     }, haltTime)
 }
 
-fun View.fadeOut(
-    haltTime: Long = DEFAULT_FADE_IN_DURATION,
-    fadeDuration: Long = DEFAULT_FADE_IN_DURATION
-) {
+fun View.fadeOut(haltTime: Long = DEFAULT_FADE_IN_DURATION, fadeDuration: Long = DEFAULT_FADE_IN_DURATION) {
     this.visible()
     Handler(Looper.getMainLooper()).postDelayed({
         this.startAnimation(AlphaAnimation(0F, 1F).apply {
@@ -69,12 +61,7 @@ fun View.goBack() {
     findNavController().popBackStack()
 }
 
-fun View.goTo(
-    id: Int,
-    bundle: Bundle? = null,
-    navOptions: NavOptions? = null,
-    navExtras: Navigator.Extras? = null
-) {
+fun View.goTo(id: Int, bundle: Bundle? = null, navOptions: NavOptions? = null, navExtras: Navigator.Extras? = null) {
     findNavController().navigate(id, bundle, navOptions, navExtras)
 }
 
@@ -120,13 +107,18 @@ fun View.color(@ColorRes value: Int): Int {
     return context.color(value)
 }
 
+fun View.dimen(@DimenRes value: Int): Float {
+    return context.dimen(value)
+}
+
 fun View.drawable(@DrawableRes value: Int): Drawable? {
     return context.drawable(value)
 }
 
+fun View.plural(@PluralsRes value: Int, amount: Int): String {
+    return context.plural(value, amount)
+}
+
 fun View.string(@StringRes value: Int): String {
     return context.string(value)
-}
-fun View.plural(@StringRes value: Int, amount: Int): String {
-    return context.plural(value, amount)
 }

@@ -7,6 +7,14 @@ import android.util.TypedValue
 import java.util.concurrent.TimeUnit
 
 
+fun Int.getColor(context: Context): Int {
+    val typedValue = TypedValue()
+    val a: TypedArray = context.obtainStyledAttributes(typedValue.data, intArrayOf(this))
+    val color = a.getColor(0, Color.BLACK)
+    a.recycle()
+    return color
+}
+
 fun Int.millisToPeriod(): Array<Long> {
     var millis = this * 1000L
 
@@ -24,16 +32,16 @@ fun Int.millisToPeriod(): Array<Long> {
     return arrayOf(days, hours, minutes, seconds)
 }
 
+fun Int?.orDefault(value: Int): Int {
+    return this ?: value
+}
+
+fun Int?.orZero(): Int {
+    return this ?: 0
+}
+
 fun Int.padStart(padding: Int, char: Char): String = toString().padStart(padding, char)
 
 fun Int.print(): String = padStart(2, '0')
 
 fun Int.secondsToPeriod(): Array<Long> = (this * 1000).millisToPeriod()
-
-fun Int.getColor(context: Context): Int {
-    val typedValue = TypedValue()
-    val a: TypedArray = context.obtainStyledAttributes(typedValue.data, intArrayOf(this))
-    val color = a.getColor(0, Color.BLACK)
-    a.recycle()
-    return color
-}

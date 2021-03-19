@@ -7,28 +7,25 @@ import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.annotation.*
 import androidx.core.content.ContextCompat
 
 
-fun Context.color(value: Int): Int {
+fun Context.color(@ColorRes value: Int): Int {
     return ContextCompat.getColor(this, value)
 }
 
-fun Context.drawable(value: Int): Drawable? {
+fun Context.dimen(@DimenRes value: Int): Float {
+    return resources.getDimension(value)
+}
+
+fun Context.drawable(@DrawableRes value: Int): Drawable? {
     return ContextCompat.getDrawable(this, value)
 }
 
 fun Context.hideKeyboard(view: View) {
     val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
-}
-
-fun Context.plural(value: Int, amount: Int): String {
-    return resources.getQuantityString(value, amount, amount)
-}
-
-fun Context.string(value: Int): String {
-    return resources.getString(value)
 }
 
 fun Context.isAppInBackground(): Boolean {
@@ -46,9 +43,17 @@ fun Context.isAppInBackground(): Boolean {
     return true
 }
 
+fun Context.plural(@PluralsRes value: Int, amount: Int): String {
+    return resources.getQuantityString(value, amount, amount)
+}
+
 fun Context.showKeyboard() {
     val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_IMPLICIT_ONLY)
+}
+
+fun Context.string(@StringRes value: Int): String {
+    return resources.getString(value)
 }
 
 fun Context.toast(value: String, length: Int = Toast.LENGTH_LONG) {
